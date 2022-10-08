@@ -1,0 +1,19 @@
+<h1>Pelicula</h1>
+<form action="{% url 'peliculas' %}" method="post">
+{% csrf_token %}
+<fieldset>
+    {% if error_message %}
+    <p class="error">{{error_message}}</p>
+    {% endif %}
+    <label for="nombrePelicula">Nombre</label>
+    <input type="text" name="nombrePelicula"/>
+    <br/>
+    <input type="submit" value="Enviar">
+</fieldset>
+</form>
+
+<ul>
+    {% for pelicula in peliculas %}
+    <li>{{pelicula.nombrePelicula}}</li>
+    {% endfor %}
+</ul>
